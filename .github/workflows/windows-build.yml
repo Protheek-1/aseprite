@@ -13,11 +13,12 @@ jobs:
       - name: Install Dependencies
         run: |
           choco install ninja
-
+          
       - name: Get Skia
         run: |
+          mkdir cmake\skia
           curl -L -o skia.zip https://github.com
-          Expand-Archive skia.zip -DestinationPath cmake/skia
+          tar -xf skia.zip -C cmake/skia
 
       - name: Build Aseprite
         run: |
